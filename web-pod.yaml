@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-pod
+  labels:
+    component: web
+spec:
+  containers:
+    - name: web-container
+      image: 85958/esusumollo
+      imagePullPolicy: Always
+      ports:
+        - containerPort: 3000
+  imagePullSecrets:
+    - name: dockerhub-token
+

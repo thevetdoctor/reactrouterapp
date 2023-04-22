@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import { Router, Route, Link } from './RouterLib.js'
 import './App.css';
+
+function Home() {
+  return (
+    <div  style={{ backgroundColor: 'silver', color: '#fff', height: '100vh', padding: '2em'}} >
+      <h1>Home </h1>
+      <Link to='/about'>Go to About Page</Link>
+    </div>
+  )
+}
+
+function About() {
+  return (
+    <div style={{ backgroundColor: 'gray', color: '#fff', height: '100vh', padding: '2em'}} className='bg-black text-white'>
+      <h1>About Us</h1>
+      <Link to='/'>Go to Home Page</Link>
+    </div>
+  )
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Route path='/' element={<Home />} />
+      <Route path='/about' element={<About />} />
+    </Router>
   );
 }
 
